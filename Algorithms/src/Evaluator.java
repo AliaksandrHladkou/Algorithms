@@ -1,7 +1,7 @@
 /*
 * Author: Aliaksandr Hladkou
 *
-* Evaluating data
+* Evaluating numbers
 * */
 
 public class Evaluator {
@@ -60,13 +60,33 @@ public class Evaluator {
         return lcm;
     }
 
+    public boolean isPrime(int number)
+    {
+        if (number <= 1)
+            return false;
+        for (int i = 2; i < number; i++)
+            if (number % i == 0)
+                return false;
+        return true;
+    }
+
     public static void main (String[] args)
     {
-        int[] array = new int[]{4, 3, 5, 2, 10};
+        int[] array = new int[]{4, 3, -5, 2, 10};
         Evaluator evaluator = new Evaluator();
-        System.out.println(evaluator.getSmallest(array));
-        System.out.println(evaluator.getLargest(array));
+        System.out.println("The smallest number is: " + evaluator.getSmallest(array));
+        System.out.println("The largest number is: " + evaluator.getLargest(array));
         System.out.println("GCD is: " + evaluator.getGCD(array[1], array[4]));
         System.out.println("LCM is: " + evaluator.getLCM(array[0], array[4]));
+        System.out.println();
+
+        ArrayGenerator generator = new ArrayGenerator();
+        int[] incArray = generator.increasing(100);
+
+        for (int i = 0; i < incArray.length; i++)
+            if (evaluator.isPrime(incArray [i]))
+                System.out.println("The number " + incArray[i] + " is prime");
+            else
+                System.out.println("The number " + incArray[i] + " is NOT prime");
     }
 }
