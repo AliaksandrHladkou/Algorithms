@@ -1,3 +1,11 @@
+import java.util.Random;
+
+/*
+* Author: Aliaksandr Hladkou
+*
+* Array generator to initialize a specific type of an array
+* */
+
 public class ArrayGenerator {
 
     public int[] increasing(int size)
@@ -16,6 +24,16 @@ public class ArrayGenerator {
 
         for (int i = bound; i >= 0; i--)
             array[i] = bound-i;
+        return array;
+    }
+
+    public int[] randomly(int size)
+    {
+        int[] array = new int[size];
+        Random random = new Random();
+
+        for (int i = 0; i < array.length; i++)
+            array[i] = random.nextInt(10);
         return array;
     }
 }
