@@ -36,4 +36,18 @@ public class ArrayGenerator {
             array[i] = random.nextInt(10);
         return array;
     }
+
+    public int[] shuffle(int[] array)
+    {
+        Random random = new Random();
+        for (int i = 0; i < array.length; i++)
+        {
+            int rand = random.nextInt(array.length-1);
+            int temp = array[rand];
+            array[rand] = array[i];
+            array[i] = temp;
+        }
+
+        return array;
+    }
 }
